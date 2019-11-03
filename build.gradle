@@ -1,0 +1,47 @@
+buildscript {
+	//Store a belongs to the variables of gradle, can the whole project, through gradle. Ext springBootVersion use
+	ext {
+		springBootVersion = '2.1.2.RELEASE'
+	}
+	/*Configure the warehouse address to find external dependencies
+	Look for required dependencies (such as jar files) in the order you place them in the file (build.gradle) repository,
+	If it is found in one warehouse, it will not be found in another
+    */
+	repositories {
+		////mavenLocal() local repository(${user.home}/.m2/repository)
+		mavenCentral()//maven central
+		//Alicloud Maven remote repository
+		maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+	}
+	/*Configure the springboot plug-in to load
+    */
+	dependencies {
+		// The classpath declaration explains that these dependencies are available to the ClassLoader when the rest of the script is executed
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+//Use the following plug-ins
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'//jvm version
+// Define the warehouse
+repositories {
+	maven{url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+	maven{url 'https://mvnrepository.com/'}
+	mavenCentral()
+}
+// Define dependencies: declare which dependencies are needed in the project
+dependencies {
+	compile  'org.springframework.boot:spring-boot-starter'
+	compile('org.springframework.boot:spring-boot-starter-web')//import web module，springmvc
+	testCompile('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+
+
