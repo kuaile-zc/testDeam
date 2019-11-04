@@ -1,4 +1,4 @@
-package com.example.test.testDeam.control;
+package com.example.test.testDeam.service;
 
 import com.example.test.testDeam.model.City;
 import com.example.test.testDeam.model.CityMapper;
@@ -14,9 +14,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Collections;
 import java.util.List;
-
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.times;
 
 /**
  * Description:

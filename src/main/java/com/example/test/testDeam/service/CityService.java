@@ -1,9 +1,8 @@
-package com.example.test.testDeam.control;
+package com.example.test.testDeam.service;
 
 import com.example.test.testDeam.model.City;
 import com.example.test.testDeam.model.CityMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
